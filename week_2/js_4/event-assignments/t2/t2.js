@@ -771,3 +771,24 @@ const restaurants = [
 ];
 
 // your code here
+const table = document.querySelector('table');
+
+restaurants.sort((a, b) => {
+  return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
+});
+
+console.log(restaurants);
+
+for (let restaurant of restaurants) {
+  table.insertAdjacentHTML('beforeend',
+  `<tr>
+  <th>${restaurant.name}</th>
+  <th>${restaurant.address}</th>
+  </tr>`
+  );
+}
+
+
+
+
+
