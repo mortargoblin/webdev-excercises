@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import MediaRow from './MediaRow';
-import SingleView from './SingleView';
+// import { useState } from 'react';
+import MediaRow from '../components/MediaRow';
+// import SingleView from './SingleView';
 
 const mediaArray = [
   {
@@ -40,10 +40,10 @@ const mediaArray = [
 ];
 
 function Home() {
-  const [selectedItem, setSelectedItem] = useState(null);
   return (
     <>
       <h2>My Media</h2>
+
       <table>
         <thead>
           <tr>
@@ -53,17 +53,16 @@ function Home() {
             <th>Created</th>
             <th>Size</th>
             <th>Type</th>
+            <th>Action</th>
           </tr>
         </thead>
+
         <tbody>
           {mediaArray.map((item) => (
-            <MediaRow key={item.media_id} item={item} setSelectedItem={setSelectedItem} />
+            <MediaRow key={item.media_id} item={item} />
           ))}
         </tbody>
       </table>
-      {selectedItem && (
-        <SingleView item={selectedItem} setSelectedItem={setSelectedItem} />
-      )}
     </>
   );
 }
